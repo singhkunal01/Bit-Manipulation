@@ -10,7 +10,7 @@ bit no. =>  3 2 1 0
 LSB (Least Significant Bit 0)
 MSB (Most  Significant Bit 3)
 
-So to chec ith bit 
+So to chec ith bit
 first of all we will have to construct a number in which only ith bit is set
 we can do it using (1 << i)
 
@@ -34,19 +34,15 @@ So now both numbers are
 It will give 1 So output will be 1
 */
 
-bool checkForIthBit(int num, int i){
-    cout << (1 << i ) << endl;
-    if((num & (1 << i)) != 0) return true;
-    return false;
+bool checkForIthBit(int num, int pos) {
+    int mask = 1 << pos;//this will left shift the 1 by position times
+    return (num & mask) ? true : false;
 }
+
 
 int main()
 {
-    int num, i;
-    cin >> num >> i;
-    if(checkForIthBit(num, i)){
-        cout << "SET BIT" << endl;
-    }else{
-        cout << "NOT SET BIT" << endl;
-    }
+    int num, pos;//num if the number and pos is position at which u want to check
+    cin >> num >> pos;
+    (checkForIthBit(num, pos) == true) ? cout << "Bit is Set" << "\n" : cout << "Bit is Not Set" << "\n";
 }
